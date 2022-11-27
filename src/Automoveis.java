@@ -1,21 +1,17 @@
-class Clientes implements Comparable{
-    String nome;
-    int telefone;
+class Automoveis {
+    int index;
+    String name;
+    String marca;
     public String getName() {
-        return nome;
+        return name;
     }
-    public void setName(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
-    public int getPhone() {
-        return telefone;
+    public String getMarca() {
+        return marca;
     }
-    public void setPhone(int telefone) {
-        this.telefone = telefone;
-    }
-    @Override
-    public int compareTo(Object arg0) {
-        Clientes p = (Clientes)arg0;
-        return p.getPhone();
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }
