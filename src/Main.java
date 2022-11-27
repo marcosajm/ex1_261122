@@ -1,11 +1,39 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Vehicle
+{
+    int rollno;
+    String name, marca;
+
+    // Constructor
+    public Vehicle(int rollno, String name,
+                   String marca)
+    {
+        this.rollno = rollno;
+        this.name = name;
+        this.marca = marca;
+    }
+    // Used to print student details in main()
+    public String toString()
+    {
+        return this.rollno + " " + this.name +
+                " " + this.marca;
+    }
+}
+class Sortbyroll implements Comparator<Vehicle>
+{
+    // Used for sorting in ascending order of
+    // roll number
+    public int compare(Vehicle a, Vehicle b)
+    {
+        return a.rollno - b.rollno;
+    }
+}
 public class Main {
     public static void main(String[] args) {
         List<Automoveis> automoveisList = new ArrayList<Automoveis>();
+        ArrayList<Vehicle> ar = new ArrayList<Vehicle>();
         Scanner scan1 = new Scanner(System.in);
         Collections.sort(automoveisList);
         while (true) {
@@ -33,6 +61,13 @@ public class Main {
                     System.out.println("Quantos automóveis existem na lista: " + size + "\n ");
                     System.out.println("Nome do automóvel no início da lista é: " + automoveisList.get(0).getName() + "\n marca: " + automoveisList.get(0).getMarca() + "\n número index: " + automoveisList.get(0).getIndex() +"\n" );
                     System.out.println("Nome do automóvel no final da lista é: " + automoveisList.get(size - 1).getName() + "\n marca: " + automoveisList.get(size - 1).getMarca() + "\n número index: " + automoveisList.get(size - 1).getIndex() +"\n" );
+                    System.out.println("Unsorted");
+                    for (int i=0; i<ar.size(); i++)
+                        System.out.println(ar.get(i));
+                    Collections.sort(ar, new Sortbyroll());
+                    System.out.println("\nSorted by rollno");
+                    for (int i=0; i<ar.size(); i++)
+                        System.out.println(ar.get(i));
                     break;
                 case 2:
                     do {
@@ -43,6 +78,10 @@ public class Main {
                         System.out.println("Inserir a marca:");
                         p.setMarca(scan1.next());
                         automoveisList.add(p);
+                        System.out.println("Inserir 2 type array:");
+                      //  ar.add(new Vehicle(scan1.next());
+                        ar.add(new Vehicle(131, "aaaa", "nyc"));
+                        ar.add(new Vehicle(121, "cccc", "jaipur"));
                         System.out.println("Deseja adicionar mais automóveis? (Y/N)");
                         if (scan1.next().equalsIgnoreCase("N")) {
                             break;
