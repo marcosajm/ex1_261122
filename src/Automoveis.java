@@ -28,11 +28,11 @@ public class Main {
                     }
                     var first = automoveisList.get(0);
                     var last = automoveisList.get(size - 1);
-                    System.out.println("Array size " +automoveisList.get(size) + "\n ");
-                    System.out.println("List is " + automoveisList + "\n ");
+                    var lastP = automoveisList.get(p.getIndex());
+                    System.out.println( lastP + "List is " + automoveisList + "\n ");
                     System.out.println("Last automóvel : " + last + "\n " + "first automóvel : " + first + "\n ");
                     System.out.println("Quantos automóveis existem na lista: " + size + "\n ");
-                    System.out.println("Nome do cliente no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca() + "\n número index: " + automoveisList.get(0).getIndex() +"\n" );
+                    System.out.println("Nome do automóvel no início da lista é: " + automoveisList.get(0).getName() + "\n marca: " + automoveisList.get(0).getMarca() + "\n número index: " + automoveisList.get(0).getIndex() +"\n" );
                     break;
                 case 2:
                     do {
@@ -58,20 +58,15 @@ public class Main {
                     }
                     do {
                         Scanner sc = new Scanner(System.in);
-                        System.out.println("Apagar automóveis do início da lista e mostrar o proximo? (Y)");
-                        if (sc.next().equalsIgnoreCase("Y")) {
-                            System.out.println("Entre com o nome do automovel: " + "\n ");
-                           // p.setMarca(sc.next());
+                        System.out.println("Entre com o nome do automóvel: " + "\n ");
+                            // p.setMarca(sc.next());
                             automoveisList.remove(sc.next());
-                          //  automoveisList.remove(Object o);
+                            //  automoveisList.remove(Object o);
                             //  automoveisList.removeAll(Collections.singleton("A"));   //[B, D]
                             // automoveisList.remove(0);
-                            if (automoveisList.size() >= 1) {
-                                System.out.println("Nome do cliente no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca());
-
-                            } else {
-                                break;
-                            }
+                        System.out.println("Deseja apagar mais automóveis? (Y/N)");
+                        if (sc.next().equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                     while (true);
