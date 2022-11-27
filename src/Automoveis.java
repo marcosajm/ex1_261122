@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
         List<Automoveis> automoveisList = new ArrayList<Automoveis>();
         // ArrayList<String> listaCorres = new ArrayList<>();
         Scanner scan1 = new Scanner(System.in);
+        Collections.sort(automoveisList);
         while (true) {
             Automoveis p = new Automoveis();
             boolean ans = automoveisList.isEmpty();
@@ -25,26 +27,27 @@ public class Main {
                         break;
                     }
                     var first = automoveisList.get(0);
-                    var last = automoveisList.get(automoveisList.size() - 1);
+                    var last = automoveisList.get(size - 1);
+                    System.out.println("Array size " +automoveisList.get(size) + "\n ");
                     System.out.println("List is " + automoveisList + "\n ");
-                    System.out.println("Próxima automóvel a ser entregue: " + last + "\n ");
+                    System.out.println("Last automóvel : " + last + "\n " + "first automóvel : " + first + "\n ");
                     System.out.println("Quantos automóveis existem na lista: " + size + "\n ");
-                    System.out.println("Nome do cliente no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca());
+                    System.out.println("Nome do cliente no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca() + "\n número index: " + automoveisList.get(0).getIndex() +"\n" );
                     break;
                 case 2:
                     do {
+                        System.out.println("Entre com o número index do automóvel: ");
+                        p.setIndex(scan1.nextInt());
                         System.out.println("Entre com o nome: ");
                         p.setName(scan1.next());
                         System.out.println("Inserir a marca:");
                         p.setMarca(scan1.next());
                         automoveisList.add(p);
-                        System.out.println("Deseja adicionar mais automóveis? (Y/N)" + "\n ");
+                        System.out.println("Deseja adicionar mais automóveis? (Y/N)");
                         if (scan1.next().equalsIgnoreCase("N")) {
                             break;
                         }
-
                         // listaCorres.add(scan1.next());
-
                     }
                     while (true);
                     break;
@@ -57,8 +60,11 @@ public class Main {
                         Scanner sc = new Scanner(System.in);
                         System.out.println("Apagar automóveis do início da lista e mostrar o proximo? (Y)");
                         if (sc.next().equalsIgnoreCase("Y")) {
-                            System.out.println("Entre com a automovel: " + "\n ");
+                            System.out.println("Entre com o nome do automovel: " + "\n ");
+                           // p.setMarca(sc.next());
                             automoveisList.remove(sc.next());
+                          //  automoveisList.remove(Object o);
+                            //  automoveisList.removeAll(Collections.singleton("A"));   //[B, D]
                             // automoveisList.remove(0);
                             if (automoveisList.size() >= 1) {
                                 System.out.println("Nome do cliente no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca());
