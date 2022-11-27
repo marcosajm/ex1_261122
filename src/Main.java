@@ -57,9 +57,10 @@ public class Main {
                     }
                     do {
                         Scanner sc = new Scanner(System.in);
-                        System.out.println("Entre com o nome do automóvel: " + "\n ");
-                            automoveisList.remove(sc.next());
-                        System.out.println("Deseja apagar mais automóveis? (Y/N)");
+                        Collections.sort(automoveisList);
+                        System.out.println("error Entre com o nome do automóvel: " + "\n ");
+                        automoveisList.remove(String.valueOf(sc.next()));
+                        System.out.println("error Deseja apagar mais automóveis? (Y/N)");
                         if (sc.next().equalsIgnoreCase("N")) {
                             break;
                         }
@@ -67,22 +68,21 @@ public class Main {
                     while (true);
                     break;
                 default:
-                    System.out.println("Invalido!" + "\n ");
+                    System.out.println("Número invalido!" + "\n ");
                     break;
             }
         }
     }
 }
-// Collections.sort(automoveisList);
-     //   System.out.println("Nome do automóveis no início da lista é: " + automoveisList.get(0).getName() + "\n número de telefone: " + automoveisList.get(0).getMarca());
-       // Java Collections
-        //  Exercício 1: Crie uma ArrayList de Strings que permite guardar
+// Java Collections
+
+//  Exercício 1: Crie uma ArrayList de Strings que permite guardar
         //   marcas de automóveis. Crie funções que permitem:
-        //   Adicionar um carro - nomeDaArrayList.add(“nome”);
-        //   Adicionar um carro e indicar o índice – nomeDaArrayList.add(1,“nome”);
-        //   Remover elemento pelo seu nome –
+        //  Adicionar um carro - nomeDaArrayList.add(“nome”);
+        //  Adicionar um carro e indicar o índice – nomeDaArrayList.add(1,“nome”);
+        //  Remover elemento pelo seu nome –
         //  nomeDaArrayList.remove(“nome”);
-        //   Remover elemento pelo seu índice –
+        //  Remover elemento pelo seu índice –
         //  nomeDaArrayList.remove(1);
 
      //   Collections.reverse(list);
